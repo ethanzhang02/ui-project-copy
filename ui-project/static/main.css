@@ -1,0 +1,56 @@
+.quiz-answers {
+    min-height: 200px;
+    outline-color: black;
+    outline-width: thin;
+    outline-style: solid;
+}
+
+.quiz-elements {
+    min-height: 200px;
+    outline-color: black;
+    outline-width: thin;
+    outline-style: solid;
+}
+
+.quiz-element {
+    background-color: lightslategrey;
+    outline-color: grey;
+    outline-width: thin;
+    outline-style: solid;
+    cursor: move;
+    height: 100px;
+}
+
+* {
+    font-family: "Shantell Sans";
+}
+
+button {
+    cursor: pointer;
+}
+
+.background {
+    background-color: #E9E6DE;
+}
+
+
+.active-tab {
+    position: relative;
+    opacity: 1;
+    /* Ensure full opacity for the active tab */
+}
+
+.active-tab::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 8px;
+    /* Adjust position relative to text */
+    height: 3px;
+    /* Base height, will be exceeded by gradient */
+    background: radial-gradient(ellipse at center, #211400 50%, transparent 50%);
+    background-size: 100% 300%;
+    /* Stretch the gradient to exaggerate the thickness variation */
+    width: 100%;/
+}

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght,INFM@0,300..800,100;1,300..800,100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght,BNCE,INFM,SPAC@0,300..800,100,100,30;1,300..800,100,100,30&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+
+<style>
+    .button-container {
+        display: flex;
+        width: 100%;
+        height: 80vh;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: none;
+    }
+
+    .story-segments {
+    text-align: left;
+    font-family: 'Shantell Sans', sans-serif;
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+    border-top: 2px solid #211400;
+    margin-top: 20px;
+}
+
+    .learn-btn {
+        flex-grow: 1;
+        width: calc((100% - 4rem) / 5);
+        height: 80vh;
+        margin-bottom: 0;
+        background: rgba(33, 20, 0, 0.05);
+        outline: none;
+        color: #211400;
+        border: solid 4px #211400;
+        line-height: 1.6;
+        padding: 20px;
+        overflow-y: auto;
+        scrollbar-width: none;
+        overflow-x: hidden;
+    }
+
+    .info-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex-grow: 1;
+        width: calc((100% - 4rem) / 5);
+        height: 80vh;
+        margin-bottom: 0;
+        background: rgba(33, 20, 0, 0.05);
+        outline: none;
+        color: #211400;
+        border: solid 4px #211400;
+        line-height: 1.6;
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    .climax-border {
+        border-radius: 10px 230px 15px 450px/450px 18px 203px 23px;
+    }
+
+    .fallingaction-border {
+        border-radius: 40px 20px 50px 10px/10px 200px 10px 10px;
+    }
+
+    .image-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(100px, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 5px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .climax-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .image-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .image-container {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div id="select" class="button-container">
+    <div class="climax-border btn-primary learn-btn" id="climax">
+        <div class="image-container">
+            {% for i in range(1, 11) %}
+            <img src="/static/quiztiles/tile{{ i }}.png" alt="Climax Image {{ i }}" class="climax-image">
+            {% endfor %}
+        </div>
+    </div>
+    <div class="fallingaction-border btn-primary learn-btn info-box" id="fallingaction">
+        <span class="button-name">Story Highlights</span>
+        <div class="story-segments">
+            <strong>Classic Opening:</strong> The scene opens with a dragon atop a tower, facing off against a knight, setting up the classic 'dragon vs. knight' scenario.<br>
+            <strong>Close-Up for Tension:</strong> A close-up of the dragon's snarling face adds tension, emphasizing the confrontation.<<br>
+            <strong>Princess's Perspective:</strong> The princess, rather than appearing distressed, is critiquing the knight, hinting she's not impressed, which adds a twist to the typical damsel in distress trope.<br>
+            <strong>Character Humor:</strong> The princess's comments reveal her strong personality and add humor, showing she's far from a passive character.<br>
+            <strong>Climactic Action:</strong> The knight attacks, flames ablaze, as the action reaches a peak.<br>
+            <strong>Revealing True Motives:</strong> The dragon calls out the knight's selfish intentions, adding depth to the story by challenging the notion of what makes a true hero.<br>
+            <strong>Hopeful Conclusion:</strong> The story concludes with the princess expressing hope for a hero with pure intentions, ending the comic on a note of anticipation.
+        </div>
+    </div>
+</div>
+
+{% endblock %}

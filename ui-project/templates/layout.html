@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+
+  <!-- jquery -->
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+
+  <title>Storytelling</title>
+
+  <script>
+    $(document).ready(function () {
+      // Get the current pathname
+      var path = window.location.pathname;
+
+      // Check if path includes 'learn' or 'quiz' and add 'active-tab' class to the corresponding link
+      if (path.includes('/learn')) {
+        $('a[href*="/learn"]').addClass('active-tab');
+      } else if (path.includes('/quiz')) {
+        $('a[href*="/quiz"]').addClass('active-tab');
+      }
+    });
+  </script>
+
+
+  <style>
+    .navbar-background {
+      background-color: #E9E6DE;
+    }
+
+    .navbar-nav {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-top: 12px !important;
+    }
+
+
+
+    .navbar-brand {
+
+      margin-left: 1rem !important;
+      color: #211400 !important;
+
+      font-size: 20px !important;
+      font-family: "Shantell Sans";
+      font-optical-sizing: auto;
+      font-style: normal;
+      font-weight: 50;
+      font-variation-settings:
+        "BNCE" 30,
+        "INFM" 100,
+        "SPAC" 10;
+    }
+
+    .navbar-brand:active {
+      transform: scale(0.9);
+    }
+
+
+    .nav-link {
+
+      font-size: 16px;
+      font-family: "Shantell Sans";
+      font-optical-sizing: auto;
+      font-style: normal;
+      font-weight: 450;
+      font-variation-settings:
+        "BNCE" 30,
+        "INFM" 100,
+        "SPAC" 10;
+
+      color: #211400 !important;
+      opacity: 0.5;
+
+    }
+
+    .nav-link:hover {
+      opacity: 1;
+    }
+
+    .nav-link:active {
+      transform: scale(0.9);
+    }
+
+    #answers-block,
+    #quiz-block {
+      padding-left: 12px !important;
+      padding-right: 14.7px !important;
+    }
+    
+  </style>
+</head>
+
+<body class="background">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-background">
+    <div class="container">
+      <div class="navbar-nav">
+
+        <a class="nav-link" href="/learn/1">learn</a>
+        <a class="navbar-brand" href="/">..✍︎</a>
+        <a class="nav-link" href="/quiz/1" id="quiz-block">quiz</a>
+        <a class="nav-link" href="/answers/1" id="answers-block" style="display:none;">-> answers︎</a>
+
+
+      </div>
+    </div>
+  </nav>
+  <br>
+  <div class="container p-0 g-0">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+</body>
+
+</html>
